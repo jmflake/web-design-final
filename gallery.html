@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Health Is Wealth</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <nav class="site-nav">
+        <div class="nav-card">
+          <a href="index.html">Home</a>
+          <a href="resume.html">Resume</a>
+          <a class="active" href="gallery.html">Gallery</a>
+        </div>
+      </nav>
+
+      <header class="page-header">
+        <p class="eyebrow">Gallery</p>
+        <h1>Clean wellness visuals.</h1>
+        <p class="lead">
+          A calm gallery that represents nutrition, movement, and strength training.
+          These images can be replaced with your real whole-food and workout photos later.
+        </p>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel carousel" aria-label="Image carousel">
+          <div class="slides">
+            <div class="slide">
+              <img
+                src="https://www.fabmood.com/wp-content/uploads/2024/01/nutritious-aesthetic-10.jpg"
+                alt="Aesthetic nutritious food spread"
+              />
+              <div class="caption">
+                <h2>Macro balance</h2>
+                <p>Protein, carbs, and healthy fats work together.</p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img
+                src="https://i.pinimg.com/736x/e8/14/34/e81434c05c3f28629546a8995c4faff7.jpg"
+                alt="Wellness walking shoes and gear"
+              />
+              <div class="caption">
+                <h2>10k steps</h2>
+                <p>Walking is simple, underrated, and powerful.</p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img
+                src="https://img.freepik.com/premium-photo/aesthetic-creative-concept-yoga-fitness-workout-training-equipment-neutral-beige_408798-8706.jpg"
+                alt="Aesthetic workout training equipment"
+              />
+              <div class="caption">
+                <h2>Strength training</h2>
+                <p>Four lifting days a week keeps the routine strong.</p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img
+                src="https://static01.nyt.com/images/2025/01/03/multimedia/03FD-HEALTHY-DINNERS-ROUNDUP-topart-stickymisosalmon-tmqb/03FD-HEALTHY-DINNERS-ROUNDUP-topart-stickymisosalmon-tmqb-superJumbo.jpg?format=pjpg&amp;quality=75&amp;auto=webp&amp;disable=upscale"
+                alt="Healthy salmon dinner plate"
+              />
+              <div class="caption">
+                <h2>Meal ideas</h2>
+                <p>Whole-food meals can still feel beautiful and exciting.</p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <img
+                src="https://images.squarespace-cdn.com/content/v1/67054003faa63171a9b0786f/b449d6d0-f7be-4e3b-9823-813bb174dec3/marissa-rodriguez-2mKYEVGA4jE-unsplash.jpg"
+                alt="Clean healthy lifestyle image"
+              />
+              <div class="caption">
+                <h2>Health is wealth</h2>
+                <p>The gallery now feels more aligned with nutrition and wellness.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="control prev" type="button" aria-label="Previous slide">&#10094;</button>
+          <button class="control next" type="button" aria-label="Next slide">&#10095;</button>
+
+          <div class="dots" aria-label="Slide navigation">
+            <button class="dot active" type="button" aria-label="Go to slide 1"></button>
+            <button class="dot" type="button" aria-label="Go to slide 2"></button>
+            <button class="dot" type="button" aria-label="Go to slide 3"></button>
+            <button class="dot" type="button" aria-label="Go to slide 4"></button>
+            <button class="dot" type="button" aria-label="Go to slide 5"></button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-card">Wellness Gallery</div>
+    </footer>
+
+    <script>
+      const slides = document.querySelector(".slides");
+      const slideItems = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+      const prevButton = document.querySelector(".prev");
+      const nextButton = document.querySelector(".next");
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        currentIndex = (index + slideItems.length) % slideItems.length;
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("active", dotIndex === currentIndex);
+        });
+      }
+
+      prevButton.addEventListener("click", () => showSlide(currentIndex - 1));
+      nextButton.addEventListener("click", () => showSlide(currentIndex + 1));
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => showSlide(index));
+      });
+    </script>
+  </body>
+</html>
